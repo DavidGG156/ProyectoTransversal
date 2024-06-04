@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Final</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("YP5gTJ3e8r_k0VdY6");
+        })();
+    </script>
 </head>
     <body>
         <nav>
@@ -16,6 +23,7 @@
                 <li><a href="#Ingles">Ingles</a></li>
                 <li><a href="Trabajos realizados.html">Trabajos realizados</a></li>
                 <li><a href="#Integrantes">Integrantes</a></li>
+                <li><a href="#api">Formulario de contacto</a></li>
             </ul>
         </nav>
         <div class="Contenido">
@@ -24,12 +32,11 @@
                 <p>Este es el inicio de la pagina web hecha como proyecto transversal</p>
             </div>
             <div id="Calculo">
-                <h2>Calculo</h2>
-                <p>En términos más precisos, una función algebraica puede no ser estrictamente una función, por lo menos no en el sentido convencional. Por ejemplo sea la ecuación de una circunferencia trigonométrica. La misma determina y, excepto por su
-                    signo. Sin embargo, se considera que ambas ramas pertenecen a la "función" determinada por la ecuación polinómica. Una función algebraica de n variables es definida en forma similar a la función y que es solución de la ecuación polinómica
-                    en variables. Normalmente se supone que debe ser un polinomio irreducible. La existencia de una función algebraica es asegurada por el teorema de la función implícita. Formalmente, una función algebraica de n variables en el cuerpo
-                    es un elemento del cierre algebraico del cuerpo de las funciones racionales. Para poder comprender a las funciones algebraicas como funciones, es necesario incorporar ideas relativas a las superficies de Riemann o en un ámbito más
-                    general sobre variedades algebraicas, y teoría de haces. Entre las funciones algebraicas se encuentran las funciones racionales y las funciones irracionales.</p>
+                <div id="chart-container">
+                    <h2>Calculo</h2>
+                    <p><stron>Gráfica de Crecimiento de la Población Mundial (1950-2023)</stron></p>
+                    <canvas id="populationChart"></canvas>
+                </div>
             </div>
             <div id="Fisica">
                 <h2>Fisica</h2>
@@ -175,7 +182,7 @@
                 <h3>Emir</h3>
                 <p><strong>Formación:</strong> Preparatoria</p>
                 <p><strong>Intereses:</strong> videojuegos, música y futbol</p>
-                <p><strong>Habilidades:</strong> sabe trabajar en equipo, heroico en free fire y buena comunicación</p>
+                <p><strong>Habilidades:</strong>Sabe trabajar en equipo, heroico en free fire y buena comunicación</p>
             </div>
             <div class="integrante">
                 <h3>Jaziel</h3>
@@ -186,13 +193,28 @@
         </div>
         <div class="slider-container">
             <div class="slider">
+                <img src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-arrow-right-vector-icon-png-image_4279778.jpg">
                <img src="David.png" >
                 <img src="Emir.png">
                 <img src="Denisse.png">
                 <img src="Jaziel.png">
-                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQgByBT5IiAT_a2x9pUVb4VMoOrlzHH7Jrzj-HB5jzHlR4lNLMS">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF1IwK6-SxM83UpFVY6WtUZxXx-phss_gAUfdKbkTfau6VWVkt">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQrH67pCJypAa7nFNVY-s3AD2IkmDR3nj_wA&s">
             </div>
+        </div>
+        <div id="Formulario de contacto">
+            <h2>Formulario de Contacto</h2>
+            <form id="contact-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+        
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+        
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" required></textarea>
+        
+                <button type="submit">Enviar</button>
+            </form>
         </div>
     </body>
     <link rel="stylesheet" href="CSS.css"> 
