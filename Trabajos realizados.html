@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajos realizados</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.slider-container {
+    width: 80%;
+    max-width: 1200px;
+    overflow: hidden;
+    margin-top: 20px;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    transition: transform 1s ease-in-out;
+}
+
+.slide-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.slide {
+    width: 48%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+.description {
+    padding: 15px;
+}
+.boton{
+height: 40px;
+width: 160px;
+font-size: 18px;
+border-radius: 8px;
+background-color: #3a3a3a;
+color: rgb(94, 111, 136);
+transition: transform 0.2s ease-in-out;
+}
+.boton:hover{
+    transform: scale(1.05);
+    color: #e2e1e1;
+}
+    </style>
+</head>
+<body>
+    <body>
+        <header>
+            <h1>Trabajos del Semestre</h1>
+            <button class="boton" onclick="Inicio()">Inicio</button>
+        </header>
+        <div class="slider-container">
+            <div class="slider" id="slider">
+            </div>
+        </div>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('slider');
+    const totalProjects = 50;
+
+    for (let i = 0; i < totalProjects; i += 2) {
+        const slideRow = document.createElement('div');
+        slideRow.classList.add('slide-row');
+
+        for (let j = 0; j < 2; j++) {
+            if (i + j < totalProjects) {
+                const slide = document.createElement('div');
+                slide.classList.add('slide');
+
+                const img = document.createElement('img');
+                img.src = `Imagenes/trabajo${i + j + 1}.jpg`;
+                img.alt = `Trabajo ${i + j + 1}`;
+
+                const description = document.createElement('div');
+                description.classList.add('description');
+
+                const h2 = document.createElement('h2');
+                h2.textContent = `Trabajo ${i + j + 1}`;
+
+                const p = document.createElement('p');
+               
+
+                description.appendChild(h2);
+                description.appendChild(p);
+                slide.appendChild(img);
+                slide.appendChild(description);
+                slideRow.appendChild(slide);
+            }
+        }
+
+        slider.appendChild(slideRow);
+    }
+
+    let currentIndex = 0;
+    const slideRows = document.querySelectorAll('.slide-row');
+    const totalSlideRows = slideRows.length;
+    const slideHeight = slideRows[0].clientHeight + 200; 
+
+    function showNextSlide() {
+        currentIndex++;
+        if (currentIndex >= totalSlideRows) {
+            currentIndex = 0;
+        }
+        slider.style.transform = `translateY(${-currentIndex * slideHeight}px)`;
+    }
+
+    setInterval(showNextSlide, 3000);
+});
+
+function Inicio() {
+           
+            window.location.href = "index.html";
+        }
+        </script>
+</body>
+</html>
